@@ -1,0 +1,92 @@
+@if (isBrandMode()) {
+  <app-main-header
+    [title]="specificList().name || ('products.loadingBrand' | translate)"
+    [description]="
+      ('products.shop' | translate) +
+      ' ' +
+      specificList().name +
+      ' ' +
+      ('products.brandProducts' | translate)
+    "
+    [image]="specificList().image"
+    [breadcrumb]="[{ label: 'brands.breadcrumb', url: '/brands' }, { label: specificList().name }]"
+  ></app-main-header>
+} @else {
+  <app-main-header
+    title="products.allProductsTitle"
+    description="products.allProductsDesc"
+    iconClass="fa-box-open"
+    bgColorClass="bg-linear-to-br from-primary via-primary-500 to-primary-400"
+    [breadcrumb]="[{ label: 'products.allProductsBreadcrumb' }]"
+  ></app-main-header>
+}
+
+<div class="container mx-auto px-4">
+  @if (isLoading()) {
+    <app-loading [titleKey]="'products.loadingSub'"></app-loading>
+  } @else {
+    <div class="text-start">
+      <div class="mb-6 text-sm text-gray-500">
+        {{ 'products.showing' | translate }} {{ productList().length }}
+        {{ 'products.productCount' | translate }}
+      </div>
+
+      <div
+        class="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-6"
+      >
+        @for (
+          product of productList()
+            | paginate
+              : {
+                  id: 'foo',
+                  itemsPerPage: pageSize(),
+                  currentPage: currPage(),
+                  totalItems: total(),
+                };
+          track product._id
+        ) {
+          <app-shared-card [data]="product"></app-shared-card>
+        }
+      </div>
+
+      <div class="flex justify-center items-center my-4">
+        <pagination-controls
+          (pageChange)="pageChanged($event)"
+          id="foo"
+          [maxSize]="9"
+          [directionLinks]="true"
+          [autoHide]="true"
+          [responsive]="true"
+          previousLabel=""
+          nextLabel=""
+          screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page"
+        >
+        </pagination-controls>
+      </div>
+    </div>
+
+    @if (productList().length === 0) {
+      <div class="text-center py-20">
+        <div
+          class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5"
+        >
+          <i class="fa-solid fa-box-open text-3xl text-gray-400"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">
+          {{ 'products.noProductsTitle' | translate }}
+        </h3>
+        <p class="text-gray-500 mb-6">
+          {{ 'products.noProductsDesc' | translate }}
+        </p>
+        <a
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-hover transition-colors cursor-pointer"
+          routerLink="/products"
+        >
+          {{ 'products.viewAllBtn' | translate }}
+        </a>
+      </div>
+    }
+  }
+</div>

@@ -1,0 +1,149 @@
+/* 1. الحاوية الرئيسية وتنظيف القائمة */
+::ng-deep .ngx-pagination {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+/* 2. إخفاء أي محتوى افتراضي (الأسهم المزدوجة والنصوص) من المكتبة */
+::ng-deep .ngx-pagination .pagination-previous a::before,
+::ng-deep .ngx-pagination .pagination-previous span::before,
+::ng-deep .ngx-pagination .pagination-next a::after,
+::ng-deep .ngx-pagination .pagination-next span::after,
+::ng-deep .ngx-pagination .pagination-previous::before,
+::ng-deep .ngx-pagination .pagination-next::after {
+  display: none !important;
+  content: '' !important;
+}
+
+/* 3. التنسيق الموحد للمربعات (أرقام وأسهم) */
+::ng-deep .ngx-pagination li {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid #f0f0f0 !important; /* إطار فاتح جداً */
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+  font-size: 14px;
+  transition: none !important; /* إلغاء أي تأثير انتقال */
+}
+
+/* 4. تنسيق الروابط والنصوص داخل المربعات */
+::ng-deep .ngx-pagination li a,
+::ng-deep .ngx-pagination li button {
+  color: #4b5563 !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* 5. وضع السهم الفردي الخاص بنا (السابق) */
+::ng-deep .ngx-pagination .pagination-previous a::before,
+::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  content: '‹' !important;
+  display: block !important;
+  font-size: 30px; /* حجم السهم */
+  color: #9ca3af;
+}
+
+/* 6. وضع السهم الفردي الخاص بنا (التالي) */
+::ng-deep .ngx-pagination .pagination-next a::after,
+::ng-deep .ngx-pagination .pagination-next.disabled::after {
+  content: '›' !important;
+  display: block !important;
+  font-size: 30px;
+  color: #9ca3af;
+}
+/* ****************************************************** */
+/* 5. ضبط التوسط العرضي والطولي لسهم (السابق) */
+::ng-deep .ngx-pagination .pagination-previous a,
+::ng-deep .ngx-pagination .pagination-previous.disabled {
+  display: flex !important;
+  align-items: center; /* التوسط الطولي */
+  justify-content: center; /* التوسط العرضي */
+  padding: 0 !important; /* تصفير أي مسافات جانبية افتراضية */
+  width: 100%; /* التأكد من ملء المربع بالكامل */
+  height: 100%;
+  text-align: center;
+}
+
+::ng-deep .ngx-pagination .pagination-previous a::before,
+::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  content: '‹' !important;
+  display: inline-block !important;
+  font-size: 30px;
+  color: #9ca3af;
+  line-height: 1;
+  /* إلغاء أي إزاحة عرضية قد تسببها الخطوط */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* يمكنك تعديل الارتفاع فقط من هنا إذا احتجت */
+  margin-top: -4px;
+}
+
+/* 6. ضبط التوسط العرضي والطولي لسهم (التالي) */
+::ng-deep .ngx-pagination .pagination-next a,
+::ng-deep .ngx-pagination .pagination-next.disabled {
+  display: flex !important;
+  align-items: center; /* التوسط الطولي */
+  justify-content: center; /* التوسط العرضي */
+  padding: 0 !important; /* تصفير أي مسافات جانبية افتراضية */
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+::ng-deep .ngx-pagination .pagination-next a::after,
+::ng-deep .ngx-pagination .pagination-next.disabled::after {
+  content: '›' !important;
+  display: inline-block !important;
+  font-size: 30px;
+  color: #9ca3af;
+  line-height: 1;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: -4px;
+}
+/* ****************************************************** */
+
+/* 7. الصفحة النشطة (المربع الأخضر) */
+::ng-deep .ngx-pagination .current {
+  background: #19a448 !important;
+  border-color: #19a448 !important;
+  color: white !important;
+  font-weight: 600;
+  width: 40px;
+  height: 40px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 8. إيقاف تأثير الـ Hover تماماً (إجبار الخلفية والحدود على البقاء كما هي) */
+::ng-deep .ngx-pagination li:not(.current):hover,
+::ng-deep .ngx-pagination li:not(.current) a:hover {
+  background-color: #ffffff !important; /* يظل أبيض */
+  border-color: #f0f0f0 !important; /* يظل نفس لون الإطار */
+  color: #4b5563 !important; /* يظل نفس لون النص */
+  /* cursor: pointer; */
+}
+
+/* 9. حالة المربع المعطل (Disabled) */
+::ng-deep .ngx-pagination .disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  background-color: #ffffff !important;
+  min-width: 40px !important; /* نفس عرض الأزرار العادية */
+  height: 40px !important;
+}

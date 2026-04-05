@@ -1,0 +1,255 @@
+<div class="bg-primary-50 border-y border-primary-100" dir="auto">
+  <div class="container mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-truck text-lg text-primary"></i>
+        </div>
+        <div class="text-start">
+          <h4 class="font-semibold text-gray-900 text-sm">
+            {{ 'features.shipping.title' | translate }}
+          </h4>
+          <p class="text-gray-500 text-xs">{{ 'features.shipping.desc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-arrow-rotate-left text-lg text-primary"></i>
+        </div>
+        <div class="text-start">
+          <h4 class="font-semibold text-gray-900 text-sm">
+            {{ 'features.returns.title' | translate }}
+          </h4>
+          <p class="text-gray-500 text-xs">{{ 'features.returns.desc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-shield-halved text-lg text-primary"></i>
+        </div>
+        <div class="text-start">
+          <h4 class="font-semibold text-gray-900 text-sm">
+            {{ 'features.payment.title' | translate }}
+          </h4>
+          <p class="text-gray-500 text-xs">{{ 'features.payment.desc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-headset text-lg text-primary"></i>
+        </div>
+        <div class="text-start">
+          <h4 class="font-semibold text-gray-900 text-sm">
+            {{ 'features.support.title' | translate }}
+          </h4>
+          <p class="text-gray-500 text-xs">{{ 'features.support.desc' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-[#0b1522] text-gray-400 py-10 px-6 font-sans">
+  <div class="container mx-auto">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[minmax(0,2fr)_repeat(4,1fr)] gap-8 mb-10"
+    >
+      <div class="lg:col-span-1 rtl:text-right">
+        <div class="bg-white inline-block p-2 rounded-md mb-6">
+          <img src="images/freshcart-logo.svg" alt="FreshCart" class="h-8" />
+        </div>
+        <p class="text-sm leading-relaxed mb-6">
+          {{ 'footer.description' | translate }}
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 flex justify-center">
+              <i class="fas fa-phone text-emerald-500 ltr:rotate-0 rtl:-rotate-90"></i>
+            </div>
+            <span class="font-sans text-start" dir="ltr">+1 (800) 123-4567</span>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 flex justify-center">
+              <i class="fas fa-envelope text-emerald-500"></i>
+            </div>
+            <span class="text-start">support@freshcart.com</span>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 flex justify-center">
+              <i class="fas fa-map-marker-alt text-emerald-500"></i>
+            </div>
+            <span class="text-start">{{ 'footer.address' | translate }}</span>
+          </li>
+        </ul>
+
+        <div class="flex items-center gap-3 mt-8">
+          <a
+            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-emerald-600 transition-colors"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-emerald-600 transition-colors"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-emerald-600 transition-colors"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-emerald-600 transition-colors"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="rtl:text-right">
+        <h4 class="text-white font-bold mb-6">{{ 'footer.shop.title' | translate }}</h4>
+        <ul class="space-y-4 text-sm">
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{ 'footer.shop.all' | translate }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.shop.categories' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.shop.brands' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.shop.electronics' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{ 'footer.shop.men' | translate }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.shop.women' | translate
+            }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="rtl:text-right">
+        <h4 class="text-white font-bold mb-6">{{ 'footer.account.title' | translate }}</h4>
+        <ul class="space-y-4 text-sm">
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.account.myAccount' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.account.history' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.account.wishlist' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.account.cart' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.account.signIn' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.account.signUp' | translate
+            }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="rtl:text-right">
+        <h4 class="text-white font-bold mb-6">{{ 'footer.support.title' | translate }}</h4>
+        <ul class="space-y-4 text-sm">
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.support.contact' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.support.help' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.support.shipping' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.support.returns' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.support.track' | translate
+            }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="rtl:text-right">
+        <h4 class="text-white font-bold mb-6">{{ 'footer.legal.title' | translate }}</h4>
+        <ul class="space-y-4 text-sm">
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.legal.privacy' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.legal.terms' | translate
+            }}</a>
+          </li>
+          <li>
+            <a class="hover:text-emerald-500 cursor-pointer">{{
+              'footer.legal.cookies' | translate
+            }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+    >
+      <p class="text-sm">{{ 'footer.rights' | translate }}</p>
+      <div class="flex items-center gap-6 text-sm">
+        <span class="flex items-center gap-2">
+          <i class="fab fa-cc-visa text-xl"></i>
+          {{ 'footer.paymentMethods.visa' | translate }}
+        </span>
+        <span class="flex items-center gap-2"
+          ><i class="fab fa-cc-mastercard text-xl"></i>
+          {{ 'footer.paymentMethods.master' | translate }}</span
+        >
+        <span class="flex items-center gap-2"
+          ><i class="fab fa-cc-paypal text-xl"></i>
+          {{ 'footer.paymentMethods.paypal' | translate }}</span
+        >
+      </div>
+    </div>
+  </div>
+</footer>

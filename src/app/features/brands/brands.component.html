@@ -1,0 +1,45 @@
+<app-main-header
+  title="brands.title"
+  description="brands.description"
+  iconClass="fa-tags"
+  bgColorClass="bg-gradient-to-br from-violet-600 via-violet-500 to-purple-400"
+  [breadcrumb]="[{ label: 'brands.breadcrumb' }]"
+></app-main-header>
+
+<div id="brands" class="container mx-auto px-4 py-10">
+  @if (isLoading()) {
+    <app-loading [titleKey]="'brands.loading'"></app-loading>
+  } @else {
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
+      @for (brand of brandList(); track brand._id) {
+        <a
+          class="group bg-white rounded-2xl border border-gray-100 p-4 sm:p-5 shadow-sm hover:shadow-xl hover:border-violet-200 transition-all duration-300 hover:-translate-y-1"
+          [routerLink]="['/products', brand._id]"
+        >
+          <div
+            class="aspect-square rounded-xl overflow-hidden bg-gray-50 mb-3 p-4 flex items-center justify-center"
+          >
+            <img
+              [alt]="brand.name"
+              class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+              [src]="brand.image"
+            />
+          </div>
+          <h3
+            class="font-semibold text-gray-900 text-center text-sm group-hover:text-violet-600 transition-colors truncate"
+          >
+            {{ brand.name }}
+          </h3>
+          <div
+            class="flex justify-center mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="text-xs text-violet-600 flex items-center gap-1">
+              {{ 'brands.viewProducts' | translate }}
+              <i class="fa-solid fa-arrow-right text-[10px] rtl:rotate-180"></i>
+            </span>
+          </div>
+        </a>
+      }
+    </div>
+  }
+</div>

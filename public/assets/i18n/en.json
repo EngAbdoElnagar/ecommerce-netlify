@@ -1,0 +1,778 @@
+{
+  "dir": "ltr",
+  "login": {
+    "sideTitle": "FreshCart - Your One-Stop Shop for Fresh Products",
+    "sideDesc": "Join thousands of happy customers who trust FreshCart for their daily grocery needs",
+    "freeDelivery": "Free Delivery",
+    "securePayment": "Secure Payment",
+    "support": "24/7 Support",
+    "welcomeBack": "Welcome Back!",
+    "subtitle": "Sign in to continue your fresh shopping experience",
+    "googleLogin": "Continue with Google",
+    "facebookLogin": "Continue with Facebook",
+    "orSeparator": "OR CONTINUE WITH EMAIL",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Keep me signed in",
+    "signInBtn": "Sign In",
+    "signingInBtn": "Sign In...",
+    "newAccountPrompt": "New to FreshCart?",
+    "createAccount": "Create an account",
+    "sslSecured": "SSL Secured",
+    "usersCount": "50K+ Users",
+    "rating": "4.9 Rating",
+    "errors": {
+      "emailRequired": "*Please enter your email",
+      "emailInvalid": "*Invalid email address",
+      "passwordRequired": "*Please enter your password",
+      "passwordPattern": "Must be at least 8 characters with numbers and symbols"
+    }
+  },
+  "register": {
+    "welcomeTitle": "Welcome to",
+    "welcomeDesc": "Join thousands of happy customers who enjoy fresh groceries delivered right to their doorstep.",
+    "features": {
+      "quality": {
+        "title": "Premium Quality",
+        "desc": "Premium quality products sourced from trusted suppliers."
+      },
+      "delivery": {
+        "title": "Fast Delivery",
+        "desc": "Same-day delivery available in most areas"
+      },
+      "secure": {
+        "title": "Secure Shopping",
+        "desc": "Your data and payments are completely secure"
+      }
+    },
+    "reviewText": "FreshCart has transformed my shopping experience. The quality of the products is outstanding, and the delivery is always on time. Highly recommend!",
+    "formTitle": "Create Your Account",
+    "formSubtitle": "Start your fresh journey with us today",
+    "social": {
+      "google": "Sign up with Google",
+      "googleBtn": "Google",
+      "facebook": "Sign up with Facebook",
+      "facebookBtn": "Facebook"
+    },
+    "or": "or",
+    
+    
+    
+    
+    "passwordHint": "Must be at least 8 characters with numbers and symbols",
+    "agreeTo": "I agree to the",
+    "terms": "Terms of Service",
+    "and": "and",
+    "privacy": "Privacy Policy",
+    "keepSignedIn": "Keep me signed in",
+    "loading": "Creating Account...",
+    "submitBtn": "Create My Account",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign In",
+    "labels": {
+      "name": "Name*",
+      "email": "Email*",
+      "password": "Password*",
+      "confirmPassword": "Confirm Password*",
+      "phone": "Phone Number*",
+      "terms": "I agree to the",
+      "and": "and",
+      "tos": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "rememberMe": "Keep me signed in"
+    },
+    "placeholders": {
+      "name": "Ali",
+      "email": "ali@example.com",
+      "password": "create a strong password",
+      "confirm": "confirm your password",
+      "phone": "+1 234 567 8900"
+    },
+    "errors": {
+      "nameRequired": "*Please enter your name",
+      "nameShort": "*Name is too short",
+      "nameLong": "*Name is too long",
+      "emailRequired": "*Please enter your email",
+      "emailInvalid": "*Invalid email address",
+      "emailExists": "*An account with this email already exists",
+      "passRequired": "*Please enter your password",
+      "passPattern": "Must be at least 8 characters with numbers and symbols",
+      "confirmRequired": "*Please confirm your password",
+      "mismatch": "*Passwords do not match.",
+      "phoneRequired": "*Please enter your phone number",
+      "phonePattern": "*Only Egyptian phone numbers are allowed"
+    },
+    "strength": {
+      "weak": "Weak",
+      "label": "Password strength: Weak"
+    },
+    "submit": {
+      "idle": "Create My Account",
+      "loading": "Creating Account..."
+    }
+  },
+  "features": {
+    "shipping": { "title": "Free Shipping", "desc": "On orders over 500 EGP" },
+    "returns": { "title": "Easy Returns", "desc": "14-day return policy" },
+    "payment": { "title": "Secure Payment", "desc": "100% secure checkout" },
+    "support": { "title": "24/7 Support", "desc": "Contact us anytime" }
+  },
+  "footer": {
+    "description": "FreshCart is your one-stop destination for quality products. From fashion to electronics, we bring you the best brands at competitive prices with a seamless shopping experience.",
+    "address": "123 Commerce Street, New York, NY 10001",
+    "shop": {
+      "title": "Shop",
+      "all": "All Products",
+      "categories": "Categories",
+      "brands": "Brands",
+      "electronics": "Electronics",
+      "men": "Men's Fashion",
+      "women": "Women's Fashion"
+    },
+    "account": {
+      "title": "Account",
+      "myAccount": "My Account",
+      "history": "Order History",
+      "wishlist": "Wishlist",
+      "cart": "Shopping Cart",
+      "signIn": "Sign In",
+      "signUp": "Create Account"
+    },
+    "support": {
+      "title": "Support",
+      "contact": "Contact Us",
+      "help": "Help Center",
+      "shipping": "Shipping Info",
+      "returns": "Returns & Refunds",
+      "track": "Track Order"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "rights": "© 2026 FreshCart. All rights reserved.",
+    "paymentMethods": {
+      "visa": "Visa",
+      "master": "Mastercard",
+      "paypal": "PayPal"
+    }
+  },
+  "home": {
+    "categories": {
+      "title": "Shop By",
+      "highlight": "Category",
+      "viewAll": "View All Categories"
+    },
+    "brands": {
+      "title": "Our",
+      "highlight": "Brands"
+    },
+    "slider": {
+      "slide1": {
+        "title": "Fresh Products Delivered to your Door",
+        "subtitle": "Get 20% off your first order"
+      },
+      "slide2": {
+        "title": "Premium Quality Guaranteed",
+        "subtitle": "Fresh from farm to your table"
+      },
+      "slide3": {
+        "title": "Fast & Free Delivery",
+        "subtitle": "Same day delivery available"
+      },
+      "buttons": {
+        "shopNow": "Shop Now",
+        "viewDeals": "View Deals",
+        "learnMore": "Learn More",
+        "orderNow": "Order Now",
+        "deliveryInfo": "Delivery Info"
+      }
+    },
+    "offers": {
+      "dealTitle": "Deal of the Day",
+      "newArrivals": "New Arrivals",
+      "useCode": "Use code",
+      "shopNow": "Shop Now",
+      "exploreNow": "Explore Now",
+      "card1": {
+        "title": "Fresh Organic Fruits",
+        "desc": "Get up to 40% off on selected organic fruits",
+        "discount": "40% OFF"
+      },
+      "card2": {
+        "title": "Exotic Vegetables",
+        "desc": "Discover our latest collection of premium vegetables",
+        "discount": "25% OFF"
+      }
+    },
+    "products": {
+      "title": "Featured",
+      "highlight": "Products"
+    }
+  },
+  "product": {
+    "currency": "EGP"
+  },
+  "subscribe": {
+    "newsletter": {
+      "badge": "Newsletter",
+      "subscribersCount": "50,000+ subscribers",
+      "title": "Get the Freshest Updates",
+      "titleHighlight": "Delivered Free",
+      "desc": "Weekly recipes, seasonal offers & exclusive member perks."
+    },
+    "features": {
+      "weekly": "Fresh Picks Weekly",
+      "delivery": "Free Delivery Codes",
+      "deals": "Members-Only Deals"
+    },
+    "form": {
+      "placeholder": "you@example.com",
+      "btn": "Subscribe",
+      "footer": "✨ Unsubscribe anytime. No spam, ever."
+    },
+    "app": {
+      "badge": "📱 MOBILE APP",
+      "title": "Shop Faster on Our App",
+      "desc": "Get app-exclusive deals & 15% off your first order.",
+      "appleLabel": "Download on",
+      "googleLabel": "Get it on",
+      "rating": "4.9 • 100K+ downloads"
+    }
+  },
+  "notFound": {
+    "title": "Oops! Nothing Here",
+    "desc": "Looks like this page went out of stock! Don't worry, there's plenty more fresh content to explore.",
+    "btnHome": "Go to Homepage",
+    "btnBack": "Go Back",
+    "popularDestinations": "Popular Destinations",
+    "links": {
+      "allProducts": "All Products",
+      "categories": "Categories",
+      "deals": "Today's Deals",
+      "contact": "Contact Us"
+    }
+  },
+  "common": {
+    "loadingPrefix": "Loading your",
+    "justMoment": "Just a moment",
+    "currency": "EGP",
+    "loading": "Loading..."
+  },
+  "orders": {
+    "loading": "Orders",
+    "breadcrumb": {
+      "home": "Home",
+      "myOrders": "My Orders"
+    },
+    "header": {
+      "title": "My Orders",
+      "subtitle": "Track and manage your {{count}} orders",
+      "continueShopping": "Continue Shopping"
+    },
+    "status": {
+      "processing": "Processing",
+      "onWay": "On the way"
+    },
+    "card": {
+      "itemsCount": "items"
+    },
+    "buttons": {
+      "details": "Details",
+      "hide": "Hide"
+    },
+    "details": {
+      "itemsTitle": "Order Items",
+      "deliveryAddress": "Delivery Address"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "free": "Free",
+      "total": "Total"
+    },
+    "empty": {
+      "title": "Your cart is empty",
+      "subtitle": "Looks like you haven't added anything to your cart yet. Start exploring our products!",
+      "btn": "Start Shopping",
+      "popular": "Popular Categories"
+    }
+  },
+  "categories": {
+    "electronics": "Electronics",
+    "fashion": "Fashion",
+    "home": "Home",
+    "beauty": "Beauty",
+    "title": "All Categories",
+    "description": "Browse our wide range of product categories",
+    "breadcrumb": "Categories",
+    "loading": "Loading Categories",
+    "viewSub": "View Subcategories",
+    "viewAll": "View All Products in Categories",
+    "noData": {
+      "title": "No Subcategories Found",
+      "desc": "This category doesn't have any subcategories yet."
+    }
+  },
+  "brands": {
+    "loading": "Brands",
+    "viewProducts": "View Products",
+    "title": "Top Brands",
+    "description": "Shop from your favorite brands",
+    "breadcrumb": "Brands"
+  },
+  "cart": {
+    "loadingTitle": "Shopping Cart",
+    "updating": "Updating...",
+    "title": "Shopping Cart",
+    "desc": "Manage your selected products",
+    "items": "items",
+    "itemsInCart": "items in your cart",
+    "countPrefix": "You have",
+    "countSuffix": "in your cart",
+    "emptyTitle": "Your cart is empty",
+    "emptyDesc": "Looks like you haven't added anything to your cart yet. Start exploring our products!",
+    "startShopping": "Start Shopping",
+    "popularCategories": "Popular Categories",
+    "breadcrumbHome": "Home",
+    "currency": "EGP",
+    "totalItem": "Total",
+    "continueShopping": "Continue Shopping",
+    "clearCart": "Clear all items",
+    "summaryTitle": "Order Summary",
+    "freeShipping": "Free Shipping!",
+    "freeShippingDesc": "You qualify for free delivery",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "FREE",
+    "total": "Total",
+    "applyPromo": "Apply Promo Code",
+    "secureCheckout": "Secure Checkout",
+    "calcAtCheckout": "Calculated at checkout",
+    "estimatedTotal": "Estimated Total",
+    "loginToCheckout": "Login to Checkout",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "benefit1": "Your cart items will be saved",
+    "benefit2": "Track your orders easily"
+  },
+  "header": {
+    "home": "Home"
+  },
+ "navbar": {
+    "topBar": {
+      "freeShipping": "Free Shipping on Orders 500 EGP",
+      "newArrivals": "New Arrivals Daily"
+    },
+    "signOut": "Sign Out",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "searchPlaceholder": "Search for products...",
+    "links": {
+      "home": "Home",
+      "shop": "Shop",
+      "categories": "Categories",
+      "brands": "Brands"
+    },
+    "categories": {
+      "all": "All Categories",
+      "electronics": "Electronics",
+      "women": "Womens Fashion",
+      "men": "Mens Fashion",
+      "beauty": "Beauty & Health"
+    },
+    "support": {
+      "title": "Support",
+      "help": "24/7 Help"
+    },
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "mobileDrawer": {
+      "needHelp": "Need Help?",
+      "contactSupport": "Contact Support"
+    },
+    "userDropdown": {
+      "profile": "My Profile",
+      "orders": "My Orders",
+      "wishlist": "My Wishlist",
+      "addresses": "Addresses",
+      "settings": "Settings"
+    }
+  },
+  
+  "checkout": {
+    "breadcrumb": {
+      "home": "Home",
+      "cart": "Cart",
+      "checkout": "Checkout"
+    },
+    "header": {
+      "title": "Complete Your Order",
+      "subtitle": "Review your items and complete your purchase",
+      "backToCart": "Back to Cart"
+    },
+    "address": {
+      "title": "Shipping Address",
+      "subtitle": "Where should we deliver your order?",
+      "infoTitle": "Delivery Information",
+      "infoDesc": "Please ensure your address is accurate for smooth delivery",
+      "city": "City",
+      "cityPlaceholder": "e.g. Cairo, Alexandria",
+      "cityError": "City name must be at least 2 characters",
+      "street": "Street Address",
+      "streetPlaceholder": "Street name, building number, apartment...",
+      "streetError": "Address details must be at least 10 characters",
+      "phone": "Phone Number",
+      "phoneHint": "Egyptian numbers only",
+      "phoneError": "Please enter a valid Egyptian phone number"
+    },
+    "payment": {
+      "title": "Payment Method",
+      "subtitle": "Choose how you'd like to pay",
+      "cashTitle": "Cash on Delivery",
+      "cashDesc": "Pay when your order arrives at your doorstep",
+      "visaTitle": "Pay Online",
+      "visaDesc": "Secure payment with Card via Stripe"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "items": "items",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "free": "FREE",
+      "total": "Total",
+      "currency": "EGP",
+      "placeOrder": "Place Order",
+      "proceedPayment": "Proceed to Payment"
+    }
+  },
+  "auth": {
+    "resetPassword": {
+      "leftTitle": "Reset Your Password",
+      "leftDesc": "Don't worry, it happens to the best of us. We'll help you get back into your account in no time.",
+      "emailVerify": "Email Verification",
+      "secureReset": "Secure Reset",
+      "encrypted": "Encrypted",
+      "forgotTitle": "Forgot Password?",
+      "forgotDesc": "No worries, we'll send you a reset code",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "emailRequired": "*Please enter your email",
+      "emailInvalid": "*Invalid email address",
+      "sendCode": "Send Reset Code",
+      "sending": "Sending...",
+      "backToSignIn": "Back to Sign In",
+      "rememberPass": "Remember your password?",
+      "signIn": "Sign In",
+      "codeLabel": "Verification Code",
+      "codeRequired": "*Reset code is required",
+      "codeMinLength": "*Reset code must be 6 digits",
+      "noCode": "Didn't receive the code?",
+      "resend": "Resend Code",
+      "verifyBtn": "Verify Code",
+      "verifying": "Verifying...",
+      "changeEmail": "Change email address",
+      "newPassLabel": "New Password",
+      "newPassPlaceholder": "Enter new password",
+      "passRequired": "*Please enter your password",
+      "passPattern": "Must be at least 8 characters with numbers and symbols",
+      "confirmPassLabel": "Confirm Password",
+      "confirmPassPlaceholder": "Confirm new password",
+      "confirmRequired": "*Please confirm your password",
+      "mismatch": "*Passwords do not match.",
+      "resetBtn": "Reset Password",
+      "resetting": "Resetting..."
+    }
+  },
+"details": {
+    "home": "Home",
+    "fashion": "Women's Fashion",
+    "clothing": "Women's Clothing",
+    "reviews": "reviews",
+    "currency": "EGP",
+    "inStock": "In Stock",
+    "quantity": "Quantity",
+    "available": "available",
+    "totalPrice": "Total Price",
+    "addToCart": "Add to Cart",
+    "added": "Added to Cart",
+    "buyNow": "Buy Now",
+    "addToWishlist": "Add to Wishlist",
+    "inWishlist": "In Wishlist",
+    "freeDelivery": "Free Delivery",
+    "deliveryLimit": "Orders over $50",
+    "returnPolicy": "30 Days Return",
+    "moneyBack": "Money back guarantee",
+    "securePayment": "Secure Payment",
+    "protected": "100% Protected",
+    "similar": {
+      "title": "You May Also",
+      "highlight": "Like"
+    }
+  },
+  "tabs": {
+    "productDetails": "Product Details",
+    "reviews": "Reviews",
+    "shippingReturns": "Shipping & Returns",
+    "aboutTitle": "About this Product",
+    "productInfo": "Product Information",
+    "category": "Category",
+    "subcategory": "Subcategory",
+    "brand": "Brand",
+    "itemsSold": "Items Sold",
+    "sold": "sold",
+    "keyFeatures": "Key Features",
+    "feature1": "Premium Quality Product",
+    "feature2": "100% Authentic Guarantee",
+    "feature3": "Fast & Secure Packaging",
+    "feature4": "Quality Tested",
+    "basedOn": "Based on",
+    "reviewsCount": "reviews",
+    "star": "star",
+    "noReviewsYet": "Customer reviews will be displayed here.",
+    "writeReview": "Write a Review",
+    "shippingInfo": "Shipping Information",
+    "ship1": "Free shipping on orders over $50",
+    "ship2": "Standard delivery: 3-5 business days",
+    "ship3": "Express delivery available (1-2 business days)",
+    "ship4": "Track your order in real-time",
+    "returnsTitle": "Returns & Refunds",
+    "return1": "30-day hassle-free returns",
+    "return2": "Full refund or exchange available",
+    "return3": "Free return shipping on defective items",
+    "return4": "Easy online return process",
+    "protectionTitle": "Buyer Protection Guarantee",
+    "protectionDesc": "Get a full refund if your order doesn't arrive or isn't as described. We ensure your shopping experience is safe and secure."
+  },
+  "products": {
+    "loadingBrand": "Loading Brand...",
+    "shop": "Shop",
+    "brandProducts": "products",
+    "allProductsTitle": "All Products",
+    "allProductsDesc": "Explore our complete product collection",
+    "allProductsBreadcrumb": "All Products",
+    "loadingSub": "Loading Subcategories...",
+    "showing": "Showing",
+    "productCount": "products",
+    "noProductsTitle": "No Products Found",
+    "noProductsDesc": "No products match your current filters.",
+    "viewAllBtn": "View All Products"
+  },
+  "search": {
+    "results": {
+      "filtersBtn": "Filters",
+      "sortBy": "Sort by",
+      "loading": " Search Results...",
+      "showing": "Showing",
+      "productCount": "products",
+      "clearAll": "Clear All Filters"
+    },
+    "sort": {
+      "relevance": "Relevance",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
+      "rating": "Rating: High to Low",
+      "nameAZ": "Name: A to Z",
+      "nameZA": "Name: Z to A"
+    },
+    "noResults": {
+      "title": "No Products Found",
+      "desc": "Try adjusting your search or filters to find what you're looking for.",
+      "btn": "Clear Filters"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "results": "Search Results"
+    },
+    "inputPlaceholder": "Search for products...",
+    "currency": "EGP",
+    "filters": {
+      "categories": "Categories",
+      "brands": "Brands",
+      "priceRange": "Price Range",
+      "min": "Min",
+      "max": "Max",
+      "noLimit": "No limit",
+      "under": "Under",
+      "selected": "selected",
+      "clearAll": "Clear All Filters",
+      "mobileTitle": "Filters"
+    }
+  },
+  "subcategories": {
+    "header": {
+      "description": "Choose a subcategory to browse products"
+    },
+    "breadcrumb": {
+      "categories": "Categories"
+    },
+    "backBtn": "Back to Categories",
+    "loadingTitle": "Subcategories",
+    "loadingText": "Loading Subcategories...",
+    "countText": "Subcategories in",
+    "browseProducts": "Browse Products",
+    "empty": {
+      "title": "No Subcategories Found",
+      "desc": "This category doesn't have any subcategories yet.",
+      "viewBtn": "View All Products in"
+    }
+  },
+  "contact": {
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Contact Us"
+    },
+    "header": {
+      "title": "Contact Us",
+      "subtitle": "We'd love to hear from you. Get in touch with our team."
+    },
+    "info": {
+      "phone": {
+        "title": "Phone",
+        "desc": "Mon-Fri from 8am to 6pm"
+      },
+      "email": {
+        "title": "Email",
+        "desc": "We'll respond within 24 hours"
+      },
+      "office": {
+        "title": "Office",
+        "address": "123 Commerce Street<br />New York, NY 10001<br />United States"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "desc": "Monday - Friday: 8am - 6pm<br />Saturday: 9am - 4pm<br />Sunday: Closed"
+      },
+      "followUs": "Follow Us"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "subtitle": "Fill out the form and we'll get back to you",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "subjectLabel": "Subject",
+      "subjectOptions": {
+        "default": "Select a subject",
+        "general": "General Inquiry",
+        "order": "Order Support",
+        "shipping": "Shipping Question",
+        "returns": "Returns & Refunds",
+        "product": "Product Information",
+        "feedback": "Feedback & Suggestions",
+        "other": "Other"
+      },
+      "messageLabel": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submitBtn": "Send Message"
+    },
+    "helpCenter": {
+      "title": "Looking for quick answers?",
+      "desc": "Check out our Help Center for frequently asked questions about orders, shipping, returns, and more.",
+      "link": "Visit Help Center"
+    }
+  },
+  "wishlist": {
+    "loading": {
+      "title": "wishlist",
+      "heading": "Loading your wishlist...",
+      "subtitle": "Just a moment"
+    },
+    "empty": {
+      "title": "Your wishlist is empty",
+      "desc": "Browse products and save your favorites here.",
+      "browseBtn": "Browse Products"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Wishlist"
+    },
+    "header": {
+      "title": "My Wishlist",
+      "itemsSaved": "items saved"
+    },
+    "table": {
+      "product": "Product",
+      "price": "Price",
+      "status": "Status",
+      "actions": "Actions",
+      "inStock": "In Stock"
+    },
+    "actions": {
+      "addToCart": "Add to Cart",
+      "adding": "Adding...",
+      "viewCart": "View Cart",
+      "remove": "Remove"
+    },
+    "currency": "EGP",
+    "continueShopping": "Continue Shopping"
+  },
+  "support": {
+    "title": "Contact Us",
+    "description": "We'd love to hear from you. Get in touch with our team.",
+    "breadcrumb": "Contact Us"
+  },
+  "profile": {
+    "title": "My Account",
+    "description": "Manage your addresses and account settings",
+    "breadcrumb": "My Account",
+    "sidebar": {
+      "header": "My Account",
+      "addresses": "My Addresses",
+      "settings": "Settings"
+    }
+  },
+  "addresses": {
+    "title": "My Addresses",
+    "subtitle": "Manage your saved delivery addresses",
+    "addBtn": "Add Address",
+    "empty": {
+      "title": "No Addresses Yet",
+      "description": "Add your first delivery address to make checkout faster and easier.",
+      "firstBtn": "Add Your First Address"
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Account Settings",
+      "subtitle": "Update your profile information and change your password"
+    },
+    "profile": {
+      "title": "Profile Information",
+      "subtitle": "Update your personal details",
+      "fullName": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "01xxxxxxxxx",
+      "saveBtn": "Save Changes"
+    },
+    "accountInfo": {
+      "title": "Account Information",
+      "userId": "User ID",
+      "role": "Role"
+    },
+    "password": {
+      "title": "Change Password",
+      "subtitle": "Update your account password",
+      "current": "Current Password",
+      "currentPlaceholder": "Enter your current password",
+      "new": "New Password",
+      "newPlaceholder": "Enter your new password",
+      "confirm": "Confirm New Password",
+      "confirmPlaceholder": "Confirm your new password",
+      "hint": "Must be at least 6 characters",
+      "mismatch": "Passwords do not match",
+      "submitBtn": "Change Password",
+      "processing": "Processing..."
+    }
+  }
+}

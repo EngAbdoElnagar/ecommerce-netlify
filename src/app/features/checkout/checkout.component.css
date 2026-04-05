@@ -1,0 +1,35 @@
+#placeOrderBtn,
+#payBtn {
+  display: none;
+}
+
+#cash_method:checked ~ .grid #placeOrderBtn {
+  display: flex;
+}
+
+#online_method:checked ~ .grid #payBtn {
+  display: flex;
+}
+
+.payment-card {
+  position: relative;
+}
+
+.radio-ui {
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  border: 2px solid #e5e7eb;
+}
+
+#cash_method:checked ~ .grid label[for='cash_method'],
+#online_method:checked ~ .grid label[for='online_method'] {
+  border-color: #6366f1;
+  background: #eef2ff;
+}
+
+#cash_method:checked ~ .grid label[for='cash_method'] .radio-ui,
+#online_method:checked ~ .grid label[for='online_method'] .radio-ui {
+  background: #6366f1;
+  border-color: #6366f1;
+}

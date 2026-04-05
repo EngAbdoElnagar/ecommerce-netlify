@@ -1,0 +1,127 @@
+<div class="">
+  <div
+    class="bg-white border border-gray-200 rounded p-4 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group font-sans text-start"
+  >
+    <div class="relative overflow-hidden mb-4">
+      <img
+        [src]="data().imageCover"
+        [alt]="data().title"
+        class="max-h-[240px] max-w-full mx-auto object-contain"
+      />
+
+      <div class="absolute -top-1 end-0 flex flex-col gap-2">
+        @if (!wishlistSuccess()) {
+          <button
+            (click)="addWishlist(data()._id)"
+            [disabled]="wishlistLoading()"
+            class="size-8 bg-white shadow-sm border border-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 transition-all cursor-pointer"
+          >
+            @if (wishlistLoading()) {
+              <i class="fa-solid fa-spinner fa-spin"></i>
+            } @else {
+              <i class="fa-regular fa-heart"></i>
+            }
+          </button>
+        }
+
+        @if (wishlistSuccess()) {
+          <button
+            (click)="removeFormWishlist(data()._id)"
+            [disabled]="wishlistLoading()"
+            class="size-8 bg-white shadow-sm border border-gray-100 rounded-full flex items-center justify-center text-red-500 hover:text-gray-600 transition-all cursor-pointer"
+          >
+            @if (wishlistLoading()) {
+              <i class="fa-solid fa-spinner fa-spin"></i>
+            } @else {
+              <i class="fa-solid fa-heart"></i>
+            }
+          </button>
+        }
+
+        <button
+          class="size-8 bg-white shadow-sm border border-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:text-primary transition-all cursor-pointer"
+        >
+          <i class="fas fa-sync-alt"></i>
+        </button>
+
+        <button
+          [routerLink]="['/product-details', data()._id, data().slug]"
+          class="size-8 cursor-pointer bg-white shadow-sm border border-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:text-primary transition-all"
+        >
+          <i class="far fa-eye"></i>
+        </button>
+      </div>
+
+      @if (data().priceAfterDiscount) {
+        <div class="absolute top-0 start-0">
+          <span class="bg-red-500 text-white text-[10px] sm:text-xs px-2 py-1 rounded shadow-sm">
+            -{{ Math.round(((data().price - data().priceAfterDiscount) / data().price) * 100) }}%
+          </span>
+        </div>
+      }
+    </div>
+
+    <div class="space-y-1">
+      <p class="text-xs text-gray-400 tracking-wide">{{ data().category.name }}</p>
+
+      <h3
+        [routerLink]="['/product-details', data()._id, data().slug]"
+        class="text-lg font-medium text-slate-800 hover:text-primary cursor-pointer transition-colors truncate"
+      >
+        {{ data().title }}
+      </h3>
+
+      <div class="flex items-center gap-1">
+        <div class="flex text-yellow-400 text-xs gap-0.5">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star text-gray-300"></i>
+        </div>
+        <span class="text-xs text-gray-400 font-medium ms-1">
+          {{ data().ratingsAverage }} ({{ data().ratingsQuantity }})</span
+        >
+      </div>
+
+      <div class="flex items-center justify-between pt-2">
+        @if (data().priceAfterDiscount) {
+          <div class="flex flex-wrap items-baseline">
+            <span class="text-lg font-bold text-primary-600">
+              {{ data().priceAfterDiscount }} {{ 'product.currency' | translate }}
+            </span>
+            <span class="text-sm text-gray-500 line-through ms-2">
+              {{ data().price }} {{ 'product.currency' | translate }}
+            </span>
+          </div>
+        } @else {
+          <div class="flex flex-col">
+            <span class="text-lg font-medium text-slate-900">
+              {{ data().price }} {{ 'product.currency' | translate }}
+            </span>
+          </div>
+        }
+
+        <button
+          (click)="addProduct(data()._id)"
+          [disabled]="loadingId() === data()._id || successId() === data()._id"
+          class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-hover transition-colors shadow-sm active:scale-95 shrink-0"
+          [ngClass]="{
+            'bg-primary hover:bg-primary-hover':
+              successId() !== data()._id && loadingId() !== data()._id,
+            'bg-green-500': successId() === data()._id,
+            'bg-gray-400': loadingId() === data()._id,
+          }"
+        >
+          @if (loadingId() === data()._id) {
+            <i class="fa-solid fa-spinner fa-spin"></i>
+          } @else if (successId() === data()._id) {
+            <i class="fa-solid fa-check"></i>
+          } @else {
+            <i class="fas fa-plus"></i>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

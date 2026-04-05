@@ -1,3 +1,195 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @import 'tailwindcss';
+
+@import 'flowbite/src/themes/default';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+@import 'ngx-toastr/toastr';
+
+@theme {
+  /* اللون الأخضر الأساسي للموقع (Buttons, Icons, Badges) */
+  --color-primary: #0aad0a;
+  --color-primary-hover: #088a08;
+  --color-primary-light: #f0f9f0;
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #0aad0a; /* اللون الأساسي الخاص بك */
+  --color-primary-700: #088a08; /* لون الـ Hover */
+  --color-primary-800: #066d06;
+  --color-primary-900: #054d05;
+  --color-primary-950: #022902;
+
+  /* ألوان النصوص */
+  --color-text-main: #21313c;
+  --color-text-muted: #5c6c75;
+
+  /* لون النص والحدود */
+  --color-dark-gray: #21313c; /* للنصوص العريضة والعناوين */
+  --color-medium-gray: #5c6c75; /* للنصوص الثانوية */
+  --color-light-gray: #f0f3f2; /* لخلفيات الـ Search والـ Help Box */
+  --color-border-color: #ecf0ef; /* لون الحدود الفاصلة */
+
+  /* ألوان إضافية للخصومات والتنبيهات */
+  --color-wishlist-red: #ff4d4d;
+  --color-wishlist-bg: #fff1f1;
+
+  /* --container-max-width: 1536px; */
+  /* --container-padding: 1rem;  */
+
+  /* --container-max: 575.8px; */
+  --container-padding: 32px;
+}
+
+@utility container {
+  margin-inline: auto;
+  /* max-width: var(--container-max); */
+  padding-inline: var(--container-padding);
+  width: 100%;
+}
+@utility form-control {
+  @apply w-full px-4 py-2.5 rounded-md border border-gray-300 bg-white 
+ text-gray-700 placeholder:text-gray-400 outline-none transition-all;
+
+  /* حالة التركيز (Focus) مطابقة للصورة */
+  &:focus {
+    @apply border-primary ring-1 ring-primary/20;
+  }
+
+  /* حالة الخطأ (عندما يكون الحقل غير صالح) */
+  &.is-invalid {
+    @apply border-red-500 focus:ring-red-100;
+  }
+}
+
+/* تنسيق إضافي لليبل (Label) ليكون مطابقاً للصورة */
+@utility form-label {
+  @apply text-sm font-semibold text-gray-800 mb-1 block;
+}
+
+
+/* XS: شاشات الموبايل الكبيرة */
+@media (max-width: 576px) {
+  :root {
+    --container-max: 540px;
+    --container-padding: 16px;
+  }
+}
+@media (min-width: 576px) {
+  :root {
+    --container-max: 540px;
+    --container-padding: 32px;
+  }
+}
+
+/* SM: التابلت */
+@media (min-width: 768px) {
+  :root {
+    --container-max: 720px;
+  }
+}
+
+/* MD: اللابتوب الصغير */
+@media (min-width: 992px) {
+  :root {
+    --container-max: 960px;
+    --container-padding: 32px;
+  }
+}
+
+/* LG: الشاشات الكبيرة */
+@media (min-width: 1200px) {
+  :root {
+    --container-max: 1140px;
+  }
+}
+
+/* XL: الشاشات الضخمة */
+@media (min-width: 1400px) {
+  :root {
+    --container-max: 1320px;
+  }
+}
+body {
+  font-family: 'Exo', sans-serif;
+}
+/* custom-toast */
+.custom-toast {
+  @apply flex items-center gap-3 bg-white shadow-lg px-4 py-3  relative;
+  transition: all 0.3s ease;
+}
+
+.custom-toast {
+  pointer-events: auto !important;
+}
+
+#toast-container {
+  pointer-events: auto !important;
+}
+
+/* الرسالة */
+.custom-message {
+  @apply text-gray-700 text-sm font-medium;
+}
+
+/* إخفاء أيقونة ngx الافتراضية */
+.toast-success::before,
+.toast-error::before,
+.toast-warning::before,
+.toast-info::before {
+  display: none !important;
+}
+
+/* الأيقونة العامة */
+
+.custom-toast::after {
+  @apply flex items-center justify-center w-6 h-6 text-white text-xs font-bold;
+  order: -1;
+
+  @apply rounded-full shadow-sm;
+  padding: 1px;
+}
+
+.toast-success.custom-toast::after {
+  content: '✔';
+  @apply bg-green-500;
+}
+
+.toast-error.custom-toast::after {
+  content: '✖';
+  @apply bg-red-500;
+}
+
+.toast-warning.custom-toast::after {
+  content: '!';
+  @apply bg-yellow-500;
+}
+
+.toast-info.custom-toast::after {
+  content: 'i';
+  @apply bg-blue-500;
+}
+
+.toast-success .toast-progress {
+  @apply bg-green-500;
+}
+
+.toast-error .toast-progress {
+  @apply bg-red-500;
+}
+
+.toast-warning .toast-progress {
+  @apply bg-yellow-500;
+}
+
+.toast-info .toast-progress {
+  @apply bg-blue-500;
+}
+
+

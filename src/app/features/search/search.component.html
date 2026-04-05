@@ -1,0 +1,442 @@
+<div id="search" class="min-h-screen bg-gray-50/50 text-start">
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 py-6">
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+        <a class="hover:text-primary-600 transition-colors cursor-pointer" routerLink="home">
+          {{ 'search.breadcrumb.home' | translate }}
+        </a>
+        <span class="text-gray-300">/</span>
+        <span class="text-gray-900 font-medium">{{ 'search.breadcrumb.results' | translate }}</span>
+      </nav>
+
+      <form (submit)="onSearch($event)" class="max-w-2xl">
+        <div class="relative">
+          <i
+            class="fa-solid fa-magnifying-glass absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"
+          ></i>
+          <input
+            name="keyword"
+            [(ngModel)]="searchTerm"
+            type="text"
+            [placeholder]="'search.inputPlaceholder' | translate"
+            class="w-full ps-12 pe-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-lg"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex gap-8">
+      <aside class="hidden lg:block w-64 shrink-0">
+        <div class="bg-white rounded-2xl border border-gray-100 p-6 sticky top-24">
+          <div class="space-y-6">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-gray-900">
+                  {{ 'search.filters.categories' | translate }}
+                </h3>
+                @if (selectedCategories().length > 0) {
+                  <span class="text-green-600 text-xs font-medium">
+                    {{ selectedCategories().length }} {{ 'search.filters.selected' | translate }}
+                  </span>
+                }
+              </div>
+              <div class="space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
+                @for (cat of categoryList(); track cat._id) {
+                  <label class="flex items-center gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      [value]="cat._id"
+                      [checked]="selectedCategories().includes(cat._id)"
+                      (change)="onCategoryChange(cat._id, $event)"
+                      class="peer w-4 h-4 rounded-none border-gray-300 text-indigo-600 transition-all cursor-pointer focus:ring-0 appearance-none border checked:bg-indigo-600 checked:border-indigo-600"
+                    />
+                    <span class="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">
+                      {{ cat.name }}
+                    </span>
+                  </label>
+                }
+              </div>
+            </div>
+
+            <hr class="border-gray-100" />
+
+            <div>
+              <h3 class="font-bold text-gray-900 mb-4">
+                {{ 'search.filters.priceRange' | translate }}
+              </h3>
+              <div class="grid grid-cols-2 gap-3 mb-3">
+                <div>
+                  <label class="text-xs text-gray-500 mb-1 block"
+                    >{{ 'search.filters.min' | translate }} ({{
+                      'search.currency' | translate
+                    }})</label
+                  >
+                  <input
+                    placeholder="0"
+                    class="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:border-primary-500 outline-none"
+                    type="number"
+                  />
+                </div>
+                <div>
+                  <label class="text-xs text-gray-500 mb-1 block"
+                    >{{ 'search.filters.max' | translate }} ({{
+                      'search.currency' | translate
+                    }})</label
+                  >
+                  <input
+                    [placeholder]="'search.filters.noLimit' | translate"
+                    class="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:border-primary-500 outline-none"
+                    type="number"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  (click)="onPriceFilter(0, 500)"
+                  class="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                >
+                  {{ 'search.filters.under' | translate }} 500
+                </button>
+
+                <button
+                  (click)="onPriceFilter(0, 1000)"
+                  class="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                >
+                  {{ 'search.filters.under' | translate }} 1K
+                </button>
+
+                <button
+                  (click)="onPriceFilter(0, 5000)"
+                  class="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                >
+                  {{ 'search.filters.under' | translate }} 5K
+                </button>
+
+                <button
+                  (click)="onPriceFilter(0, 10000)"
+                  class="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                >
+                  {{ 'search.filters.under' | translate }} 10K
+                </button>
+                <!-- ************************ -->
+                @for (price of [500, 1000, 5000, 10000]; track price) {
+                  <button
+                    (click)="onPriceFilter(0, price)"
+                    [class.bg-primary]="selectedMaxPrice() === price"
+                    [class.text-white]="selectedMaxPrice() === price"
+                    [class.bg-gray-100]="selectedMaxPrice() !== price"
+                    [class.text-gray-600]="selectedMaxPrice() !== price"
+                    class="px-3 py-1.5 rounded-full text-xs font-medium transition-colors hover:bg-opacity-90"
+                  >
+                    {{ 'search.filters.under' | translate }}
+                    {{ price >= 1000 ? price / 1000 + 'K' : price }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <hr class="border-gray-100" />
+
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-gray-900">{{ 'search.filters.brands' | translate }}</h3>
+                @if (selectedBrands().length > 0) {
+                  <span class="text-green-600 text-xs font-medium">
+                    {{ selectedBrands().length }} {{ 'search.filters.selected' | translate }}
+                  </span>
+                }
+              </div>
+              <div class="space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
+                @for (brand of brandList(); track brand._id) {
+                  <label class="flex items-center gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      [checked]="selectedBrands().includes(brand._id)"
+                      [value]="brand._id"
+                      (change)="onBrandChange(brand._id, $event)"
+                      class="peer w-4 h-4 rounded-none border-gray-300 text-indigo-600 appearance-none border checked:bg-indigo-600 checked:border-indigo-600"
+                    />
+                    <span class="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">
+                      {{ brand.name }}
+                    </span>
+                  </label>
+                }
+              </div>
+            </div>
+
+            <hr class="border-gray-100" />
+            <button
+              (click)="clearFilters()"
+              class="w-full py-2.5 rounded-md border border-gray-200 text-gray-600 text-sm font-medium hover:bg-gray-50 transition-colors"
+            >
+              {{ 'search.filters.clearAll' | translate }}
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      @if (isSidebarOpen()) {
+        <div class="fixed inset-0 z-50 lg:hidden">
+          <div (click)="closeSidebar()" class="absolute inset-0 bg-black/50"></div>
+
+          <div class="absolute inset-y-0 end-0 w-80 bg-white p-6 overflow-y-auto shadow-xl">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-lg font-bold">{{ 'search.filters.mobileTitle' | translate }}</h2>
+              <button
+                (click)="closeSidebar()"
+                class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <div class="space-y-6 text-start">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="font-bold text-gray-900">
+                    {{ 'search.filters.categories' | translate }}
+                  </h3>
+                  @if (selectedCategories().length > 0) {
+                    <span class="text-green-600 text-xs font-medium">
+                      {{ selectedCategories().length }} {{ 'search.results.selected' | translate }}
+                    </span>
+                  }
+                </div>
+
+                <div class="space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
+                  @for (cat of categoryList(); track cat._id) {
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        [value]="cat._id"
+                        [checked]="selectedCategories().includes(cat._id)"
+                        (change)="onCategoryChange(cat._id, $event)"
+                        class="peer w-4 h-4 border-gray-300 text-primary focus:ring-0 appearance-none border checked:bg-primary checked:border-primary transition-all cursor-pointer"
+                      />
+                      <span
+                        class="text-sm text-gray-600 group-hover:text-gray-900 transition-colors"
+                      >
+                        {{ cat.name }}
+                      </span>
+                    </label>
+                  }
+                </div>
+              </div>
+
+              <hr class="border-gray-100" />
+
+              <div>
+                <h3 class="font-bold text-gray-900 mb-4">
+                  {{ 'search.filters.priceRange' | translate }}
+                </h3>
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                  <div>
+                    <label class="text-xs text-gray-500 mb-1 block"
+                      >{{ 'search.filters.min' | translate }} (EGP)</label
+                    >
+                    <input
+                      placeholder="0"
+                      class="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none"
+                      type="number"
+                    />
+                  </div>
+                  <div>
+                    <label class="text-xs text-gray-500 mb-1 block"
+                      >{{ 'search.filters.max' | translate }} (EGP)</label
+                    >
+                    <input
+                      placeholder="{{ 'search.filters.noLimit' | translate }}"
+                      class="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none"
+                      type="number"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                  @for (price of [500, 1000, 5000, 10000]; track price) {
+                    <button
+                      (click)="onPriceFilter(0, price)"
+                      [class.bg-primary]="selectedMaxPrice() === price"
+                      [class.text-white]="selectedMaxPrice() === price"
+                      [class.bg-gray-100]="selectedMaxPrice() !== price"
+                      [class.text-gray-600]="selectedMaxPrice() !== price"
+                      class="px-3 py-1.5 rounded-full text-xs font-medium transition-colors hover:bg-opacity-90"
+                    >
+                      {{ 'search.filters.under' | translate }}
+                      {{ price >= 1000 ? price / 1000 + 'K' : price }}
+                    </button>
+                  }
+                </div>
+              </div>
+
+              <hr class="border-gray-100" />
+
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="font-bold text-gray-900">{{ 'search.filters.brands' | translate }}</h3>
+                  @if (selectedBrands().length > 0) {
+                    <span class="text-green-600 text-xs font-medium">
+                      {{ selectedBrands().length }} {{ 'search.results.selected' | translate }}
+                    </span>
+                  }
+                </div>
+                <div class="space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
+                  @for (brand of brandList(); track brand._id) {
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        [value]="brand._id"
+                        [checked]="selectedBrands().includes(brand._id)"
+                        (change)="onBrandChange(brand._id, $event)"
+                        class="peer w-4 h-4 border-gray-300 text-primary focus:ring-0 appearance-none border checked:bg-primary checked:border-primary transition-all cursor-pointer"
+                      />
+                      <span
+                        class="text-sm text-gray-600 group-hover:text-gray-900 transition-colors"
+                      >
+                        {{ brand.name }}
+                      </span>
+                    </label>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      <main class="flex-1 min-w-0 text-start">
+        <div class="flex items-center justify-between mb-6 gap-4 flex-wrap">
+          <div class="flex items-center gap-4">
+            <button
+              (click)="toggleSidebar()"
+              class="lg:hidden flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors"
+            >
+              <i class="fa-solid fa-sliders"></i>
+              {{ 'search.results.filtersBtn' | translate }}
+            </button>
+
+            <div class="flex items-center gap-1 bg-white rounded-md border border-gray-200 p-1">
+              <button
+                (click)="vertical()"
+                class="p-2 rounded-md transition-colors"
+                [class.bg-primary-600]="viewMode() === 'grid'"
+                [class.text-white]="viewMode() === 'grid'"
+                [class.text-gray-500]="viewMode() !== 'grid'"
+              >
+                <i class="fa-solid fa-grip-vertical"></i>
+              </button>
+
+              <button
+                (click)="list()"
+                class="p-2 rounded-md transition-colors"
+                [class.bg-primary-600]="viewMode() === 'list'"
+                [class.text-white]="viewMode() === 'list'"
+                [class.text-gray-500]="viewMode() !== 'list'"
+              >
+                <i class="fa-solid fa-list"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-500">{{ 'search.results.sortBy' | translate }}:</span>
+            <select
+              class="px-3 py-2 rounded-md border border-gray-200 text-sm focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none bg-white cursor-pointer"
+              [value]="selectedSort() ?? ''"
+              (change)="onSortChange($event)"
+            >
+              <option value="">{{ 'search.sort.relevance' | translate }}</option>
+              <option value="price">{{ 'search.sort.priceLow' | translate }}</option>
+              <option value="-price">{{ 'search.sort.priceHigh' | translate }}</option>
+              <option value="-ratingsAverage">{{ 'search.sort.rating' | translate }}</option>
+              <option value="title">{{ 'search.sort.nameAZ' | translate }}</option>
+              <option value="-title">{{ 'search.sort.nameZA' | translate }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="">
+          @if (isLoading()) {
+            <app-loading [titleKey]="'search.results.loading'"></app-loading>
+          } @else {
+            <div class="">
+              <div class="mb-6 text-sm text-gray-500 flex justify-between items-center">
+                <p>
+                  {{ 'search.results.showing' | translate }} {{ productList().length }}
+                  {{ 'search.results.productCount' | translate }}
+                </p>
+                <button
+                  (click)="clearFilters()"
+                  class="text-xs text-gray-500 hover:text-gray-700 underline cursor-pointer"
+                >
+                  {{ 'search.results.clearAll' | translate }}
+                </button>
+              </div>
+
+              <div
+                class="grid gap-4 mb-6"
+                [ngClass]="
+                  viewMode() === 'grid'
+                    ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'
+                    : 'grid-cols-1'
+                "
+              >
+                @for (
+                  product of productList()
+                    | paginate
+                      : {
+                          id: 'foo',
+                          itemsPerPage: pageSize(),
+                          currentPage: currPage(),
+                          totalItems: total(),
+                        };
+                  track product._id
+                ) {
+                  <app-shared-card [data]="product"></app-shared-card>
+                }
+              </div>
+
+              <div class="flex justify-center items-center my-4">
+                <pagination-controls
+                  (pageChange)="pageChanged($event)"
+                  id="foo"
+                  [maxSize]="9"
+                  [directionLinks]="true"
+                  [autoHide]="true"
+                  [responsive]="true"
+                  previousLabel=""
+                  nextLabel=""
+                >
+                </pagination-controls>
+              </div>
+            </div>
+
+            @if (productList().length === 0) {
+              <div class="text-center py-20">
+                <div
+                  class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5"
+                >
+                  <i class="fa-solid fa-magnifying-glass text-3xl text-gray-400"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">
+                  {{ 'search.noResults.title' | translate }}
+                </h3>
+                <p class="text-gray-500 mb-6">
+                  {{ 'search.noResults.desc' | translate }}
+                </p>
+                <button
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-hover transition-colors cursor-pointer"
+                  (click)="clearFilters()"
+                >
+                  {{ 'search.noResults.btn' | translate }}
+                </button>
+              </div>
+            }
+          }
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

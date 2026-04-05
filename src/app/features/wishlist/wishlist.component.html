@@ -1,0 +1,183 @@
+@if (isLoading()) {
+  <app-loading [titleKey]="'wishlist.loading.title'"></app-loading>
+} @else {
+  @if (wishlistItems().length === 0) {
+    <div class="container mx-auto px-4 py-20 text-center">
+      <div class="max-w-sm mx-auto">
+        <div
+          class="w-20 h-20 rounded-2xl bg-gray-100 flex items-center justify-center mx-auto mb-6"
+        >
+          <i class="fa-regular fa-heart text-3xl text-gray-400"></i>
+        </div>
+        <h2 class="text-xl font-bold text-gray-900 mb-2">
+          {{ 'wishlist.empty.title' | translate }}
+        </h2>
+        <p class="text-gray-500 text-sm mb-6">{{ 'wishlist.empty.desc' | translate }}</p>
+        <div class="flex flex-col gap-3">
+          <a
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors cursor-pointer"
+            routerLink="/products"
+          >
+            {{ 'wishlist.empty.browseBtn' | translate }}
+            <i class="fa-solid fa-arrow-right text-sm rtl:rotate-180"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="min-h-screen bg-gray-50/50 container mx-auto text-start">
+      <div class="bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4 py-8">
+          <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a class="hover:text-primary-600 transition-colors cursor-pointer" routerLink="/">{{
+              'wishlist.breadcrumb.home' | translate
+            }}</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">{{
+              'wishlist.breadcrumb.current' | translate
+            }}</span>
+          </nav>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center">
+                <i class="fa-solid fa-heart text-xl text-red-500"></i>
+              </div>
+              <div>
+                <h1 class="text-2xl font-bold text-gray-900">
+                  {{ 'wishlist.header.title' | translate }}
+                </h1>
+                <p class="text-gray-500 text-sm">
+                  {{ wishlistItems().length }} {{ 'wishlist.header.itemsSaved' | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+          <div
+            class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-gray-50 border-b border-gray-100 text-sm font-medium text-gray-500"
+          >
+            <div class="col-span-6">{{ 'wishlist.table.product' | translate }}</div>
+            <div class="col-span-2 text-center">{{ 'wishlist.table.price' | translate }}</div>
+            <div class="col-span-2 text-center">{{ 'wishlist.table.status' | translate }}</div>
+            <div class="col-span-2 text-center">{{ 'wishlist.table.actions' | translate }}</div>
+          </div>
+
+          <div class="divide-y divide-gray-100">
+            @for (item of wishlistItems(); track item._id) {
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:px-6 md:py-5 items-center hover:bg-gray-50/50 transition-colors"
+              >
+                <div class="md:col-span-6 flex items-center gap-4">
+                  <a
+                    [routerLink]="['/product-details', item._id, item.slug]"
+                    class="w-20 h-20 rounded-xl bg-gray-50 border border-gray-100 overflow-hidden shrink-0 cursor-pointer"
+                  >
+                    <img
+                      [alt]="item.title"
+                      class="w-full h-full object-contain p-2"
+                      [src]="item.imageCover"
+                    />
+                  </a>
+                  @if (item.category.name) {
+                    <div class="min-w-0">
+                      <a
+                        [routerLink]="['/product-details', item._id, item.slug]"
+                        class="font-medium text-gray-900 hover:text-primary-600 transition-colors line-clamp-2 cursor-pointer"
+                      >
+                        {{ item.title }}
+                      </a>
+                      <p class="text-sm text-gray-400 mt-1">{{ item.category.name }}</p>
+                    </div>
+                  }
+                </div>
+
+                <div class="md:col-span-2 flex md:justify-center items-center gap-2">
+                  <span class="md:hidden text-sm text-gray-500"
+                    >{{ 'wishlist.table.price' | translate }}:</span
+                  >
+                  <div class="text-right md:text-center">
+                    @if (item.priceAfterDiscount) {
+                      <div class="font-semibold text-gray-900 direction-ltr">
+                        {{ item.priceAfterDiscount }} {{ 'wishlist.currency' | translate }}
+                      </div>
+                      <span class="text-sm text-gray-400 line-through mx-2 direction-ltr"
+                        >{{ item.price }} {{ 'wishlist.currency' | translate }}</span
+                      >
+                    } @else {
+                      <div class="font-semibold text-gray-900 direction-ltr">
+                        {{ item.price }} {{ 'wishlist.currency' | translate }}
+                      </div>
+                    }
+                  </div>
+                </div>
+
+                <div class="md:col-span-2 flex md:justify-center">
+                  <span class="md:hidden text-sm text-gray-500 me-2"
+                    >{{ 'wishlist.table.status' | translate }}:</span
+                  >
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    {{ 'wishlist.table.inStock' | translate }}
+                  </span>
+                </div>
+
+                <div class="md:col-span-2 flex items-center gap-2 md:justify-center">
+                  <button
+                    (click)="successId() !== item._id ? addProduct(item._id) : null"
+                    [disabled]="loadingId() === item._id"
+                    class="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md text-sm font-medium transition-all cursor-pointer"
+                    [ngClass]="{
+                      'bg-primary text-white': successId() !== item._id && loadingId() !== item._id,
+                      'bg-green-600 text-white': successId() === item._id,
+                      'bg-gray-400 text-white': loadingId() === item._id,
+                    }"
+                  >
+                    @if (loadingId() === item._id) {
+                      <i class="fa-solid fa-spinner fa-spin"></i>
+                      <span>{{ 'wishlist.actions.adding' | translate }}</span>
+                    } @else if (successId() === item._id) {
+                      <a
+                        routerLink="/cart"
+                        class="flex items-center gap-2 w-full h-full justify-center"
+                      >
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                        <span>{{ 'wishlist.actions.viewCart' | translate }}</span>
+                      </a>
+                    } @else {
+                      <i class="fa-solid fa-cart-shopping text-xs"></i>
+                      <span>{{ 'wishlist.actions.addToCart' | translate }}</span>
+                    }
+                  </button>
+
+                  <button
+                    (click)="removeFormWishlist(item._id)"
+                    class="min-w-10 h-10 rounded-md border border-gray-200 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all disabled:opacity-50 cursor-pointer"
+                    [title]="'wishlist.actions.remove' | translate"
+                  >
+                    <i class="fa-solid fa-trash text-sm"></i>
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="mt-8 flex items-center justify-between">
+          <a
+            class="text-gray-500 hover:text-primary-600 text-sm font-medium transition-colors cursor-pointer"
+            routerLink="/products"
+          >
+            <span class="inline-block rtl:rotate-180">←</span>
+            {{ 'wishlist.continueShopping' | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  }
+}

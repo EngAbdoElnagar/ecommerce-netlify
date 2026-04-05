@@ -1,0 +1,69 @@
+<section id="all-Categories">
+  <app-main-header
+    title="categories.title"
+    description="categories.description"
+    iconClass="fa-layer-group"
+    [breadcrumb]="[{ label: 'categories.breadcrumb' }]"
+  ></app-main-header>
+
+  @if (isLoading()) {
+    <app-loading [titleKey]="'categories.loading'"></app-loading>
+  } @else {
+    <div class="container mx-auto px-4 py-10" [attr.dir]="'dir' | translate">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+        @for (item of categoryList(); track item._id) {
+          <a [routerLink]="['/subCategories', item._id]" class="cursor-pointer">
+            <div
+              class="group bg-white rounded-2xl border border-gray-100 p-4 sm:p-6 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all duration-300 hover:-translate-y-1"
+            >
+              <div class="aspect-square rounded-xl overflow-hidden bg-gray-50 mb-4">
+                <img
+                  [src]="item.image"
+                  [alt]="item.name"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+
+              <h3
+                class="font-bold text-gray-900 text-center group-hover:text-primary transition-colors"
+              >
+                {{ item.name }}
+              </h3>
+
+              <div
+                class="flex justify-center mt-2 opacity-0 group-hover:opacity-100 transition-all"
+              >
+                <span class="text-xs text-primary flex items-center gap-1">
+                  {{ 'categories.viewSub' | translate }}
+                  <i class="fa-solid fa-arrow-right text-2xs rtl:rotate-180"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+
+      @if (categoryList().length === 0) {
+        <div class="text-center py-20">
+          <div
+            class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5"
+          >
+            <i class="fa-solid fa-folder-open text-3xl text-gray-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">
+            {{ 'categories.noData.title' | translate }}
+          </h3>
+          <p class="text-gray-500 mb-6">
+            {{ 'categories.noData.desc' | translate }}
+          </p>
+          <a
+            routerLink="/categories"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-hover transition-colors"
+          >
+            {{ 'categories.viewAll' | translate }}
+          </a>
+        </div>
+      }
+    </div>
+  }
+</section>

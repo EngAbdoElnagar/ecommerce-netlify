@@ -1,0 +1,82 @@
+<section id="offers" class="py-10 overflow-x-hidden">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div
+        data-aos="fade-right"
+        class="relative overflow-hidden rounded-2xl bg-linear-to-br from-primary-500 to-primary-hover p-8 text-white min-h-[300px]"
+      >
+        <div
+          class="absolute top-0 end-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/4 rtl:-translate-x-1/4"
+        ></div>
+        <div
+          class="absolute bottom-0 start-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/4 rtl:translate-x-1/4"
+        ></div>
+
+        <div class="relative z-10 text-start">
+          <div
+            class="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-sm mb-4"
+          >
+            <span>🔥</span><span>{{ 'home.offers.dealTitle' | translate }}</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-2">
+            {{ 'home.offers.card1.title' | translate }}
+          </h3>
+          <p class="text-white/80 mb-4">{{ 'home.offers.card1.desc' | translate }}</p>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="text-3xl font-bold">{{ 'home.offers.card1.discount' | translate }}</div>
+            <div class="text-sm text-white/70">
+              {{ 'home.offers.useCode' | translate }}:
+              <span class="font-bold text-white">ORGANIC40</span>
+            </div>
+          </div>
+          <a
+            class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
+            routerLink="/shop"
+          >
+            {{ 'home.offers.shopNow' | translate }}
+            <i class="fa-solid fa-arrow-right ms-2 rtl:-rotate-180"></i>
+          </a>
+        </div>
+      </div>
+
+      <div
+        data-aos="fade-left"
+        class="relative overflow-hidden rounded-2xl bg-linear-to-br from-orange-400 to-rose-500 p-8 text-white min-h-[300px]"
+      >
+        <div
+          class="absolute top-0 end-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/4 rtl:-translate-x-1/4"
+        ></div>
+        <div
+          class="absolute bottom-0 start-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/4 rtl:translate-x-1/4"
+        ></div>
+
+        <div class="relative z-10 text-start">
+          <div
+            class="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-sm mb-4"
+          >
+            <span>✨</span><span>{{ 'home.offers.newArrivals' | translate }}</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-2">
+            {{ 'home.offers.card2.title' | translate }}
+          </h3>
+          <p class="text-white/80 mb-4">{{ 'home.offers.card2.desc' | translate }}</p>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="text-3xl font-bold">{{ 'home.offers.card2.discount' | translate }}</div>
+            <div class="text-sm text-white/70">
+              {{ 'home.offers.useCode' | translate }}:
+              <span class="font-bold text-white">FRESH25</span>
+            </div>
+          </div>
+          <a
+            class="inline-flex items-center gap-2 bg-white text-orange-500 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
+            [routerLink]="['/products']"
+            [queryParams]="{ sort: '-price' }"
+          >
+            {{ 'home.offers.exploreNow' | translate }}
+            <i class="fa-solid fa-arrow-right ms-2 rtl:-rotate-180"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

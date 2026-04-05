@@ -1,0 +1,210 @@
+@if (isBrowser()) {
+  <swiper-container
+    class="mySwiper"
+    pagination="true"
+    pagination-clickable="true"
+    navigation="true"
+    space-between="0"
+    centered-slides="true"
+    autoplay-delay="3500"
+    autoplay-disable-on-interaction="false"
+    speed="1200"
+    dir="ltr"
+  >
+    <swiper-slide>
+      <div class="h-100 flex items-center item">
+        <div class="container mx-auto px-4">
+          <div class="w-full text-white space-y-4 text-start">
+            <h2
+              data-aos="fade-up"
+              data-aos-once="false"
+              class="text-white text-3xl font-bold mb-4 max-w-96 leading-tight"
+            >
+              {{ 'home.slider.slide1.title' | translate }}
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="400" data-aos-once="false" class="font-medium">
+              {{ 'home.slider.slide1.subtitle' | translate }}
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <a
+                data-aos="fade-up"
+                data-aos-delay="900"
+                data-aos-once="false"
+                class="cursor-pointer bg-white border-2 border-white/50 text-green-500 inline-block px-6 py-2 rounded font-semibold hover:scale-105 transition-transform"
+              >
+                {{ 'home.slider.buttons.shopNow' | translate }}
+              </a>
+              <a
+                data-aos="fade-up"
+                data-aos-delay="900"
+                data-aos-once="false"
+                class="cursor-pointer bg-transparent border-2 border-white/50 text-white inline-block px-6 py-2 rounded font-semibold hover:scale-105 transition-transform"
+              >
+                {{ 'home.slider.buttons.viewDeals' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="h-100 flex items-center item">
+        <div class="container mx-auto px-4">
+          <div class="w-full text-white space-y-4 text-start">
+            <h2
+              data-aos="fade-up"
+              data-aos-once="false"
+              class="text-white text-3xl font-bold mb-4 max-w-96 leading-tight"
+            >
+              {{ 'home.slider.slide2.title' | translate }}
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="400" data-aos-once="false" class="font-medium">
+              {{ 'home.slider.slide2.subtitle' | translate }}
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <a
+                data-aos="fade-up"
+                data-aos-delay="900"
+                data-aos-once="false"
+                class="cursor-pointer bg-white border-2 border-white/50 text-blue-500 inline-block px-6 py-2 rounded font-semibold hover:scale-105 transition-transform"
+              >
+                {{ 'home.slider.buttons.shopNow' | translate }}
+              </a>
+              <a
+                data-aos="fade-up"
+                data-aos-delay="900"
+                data-aos-once="false"
+                class="cursor-pointer bg-transparent border-2 border-white/50 text-white inline-block px-6 py-2 rounded font-semibold hover:scale-105 transition-transform"
+              >
+                {{ 'home.slider.buttons.learnMore' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="h-100 flex items-center item">
+        <div class="container mx-auto px-4">
+          <div class="w-full text-white space-y-4 text-start">
+            <h2
+              data-aos="fade-up"
+              data-aos-once="false"
+              class="text-white text-3xl font-bold mb-4 max-w-96 leading-tight"
+            >
+              {{ 'home.slider.slide3.title' | translate }}
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="400" data-aos-once="false" class="font-medium">
+              {{ 'home.slider.slide3.subtitle' | translate }}
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <a
+                data-aos="fade-up"
+                data-aos-delay="900"
+                data-aos-once="false"
+                class="cursor-pointer bg-white border-2 border-white/50 text-purple-500 inline-block px-6 py-2 rounded font-semibold hover:scale-105 transition-transform"
+              >
+                {{ 'home.slider.buttons.orderNow' | translate }}
+              </a>
+              <a
+                data-aos="fade-up"
+                data-aos-delay="900"
+                data-aos-once="false"
+                class="cursor-pointer bg-transparent border-2 border-white/50 text-white inline-block px-6 py-2 rounded font-semibold hover:scale-105 transition-transform"
+              >
+                {{ 'home.slider.buttons.deliveryInfo' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+}
+
+<section class="py-8 bg-gray-50 overflow-hidden">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div
+        data-aos="fade-up"
+        class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div
+          class="bg-blue-50 text-blue-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+        >
+          <i class="fa-solid fa-truck text-xl"></i>
+        </div>
+        <div class="text-start">
+          <h3 class="font-semibold text-gray-800 text-sm">
+            {{ 'features.shipping.title' | translate }}
+          </h3>
+          <p class="text-xs text-gray-500">
+            {{ 'features.shipping.desc' | translate }}
+          </p>
+        </div>
+      </div>
+
+      <div
+        data-aos="fade-up"
+        data-aos-delay="300"
+        class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div
+          class="bg-emerald-50 text-emerald-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+        >
+          <i class="fa-solid fa-shield-halved text-xl"></i>
+        </div>
+        <div class="text-start">
+          <h3 class="font-semibold text-gray-800 text-sm">
+            {{ 'features.payment.title' | translate }}
+          </h3>
+          <p class="text-xs text-gray-500">
+            {{ 'features.payment.desc' | translate }}
+          </p>
+        </div>
+      </div>
+
+      <div
+        data-aos="fade-up"
+        data-aos-delay="600"
+        class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div
+          class="bg-orange-50 text-orange-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+        >
+          <i class="fa-solid fa-arrow-rotate-left text-xl ltr:rotate-0 rtl:-rotate-90"></i>
+        </div>
+        <div class="text-start">
+          <h3 class="font-semibold text-gray-800 text-sm">
+            {{ 'features.returns.title' | translate }}
+          </h3>
+          <p class="text-xs text-gray-500">
+            {{ 'features.returns.desc' | translate }}
+          </p>
+        </div>
+      </div>
+
+      <div
+        data-aos="fade-up"
+        data-aos-delay="900"
+        class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div
+          class="bg-purple-50 text-purple-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+        >
+          <i class="fa-solid fa-headset text-xl"></i>
+        </div>
+        <div class="text-start">
+          <h3 class="font-semibold text-gray-800 text-sm">
+            {{ 'features.support.title' | translate }}
+          </h3>
+          <p class="text-xs text-gray-500">
+            {{ 'features.support.desc' | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

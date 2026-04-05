@@ -1,0 +1,220 @@
+
+<div class="container py-16 mx-auto px-4" id="login-section">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+    <div class="hidden lg:block">
+      <div class="text-center space-y-6">
+        <img
+          class="w-full h-96 object-cover rounded-2xl shadow-lg"
+          src="images/car-shoping.png"
+          [alt]="'login.sideTitle' | translate"
+        />
+        <div class="space-y-4">
+          <h2 class="text-3xl font-bold text-gray-800">
+            {{ 'login.sideTitle' | translate }}
+          </h2>
+          <p class="text-lg text-gray-600">
+            {{ 'login.sideDesc' | translate }}
+          </p>
+          <div
+            class="flex items-center justify-center space-x-8 text-sm text-gray-500 rtl:space-x-reverse"
+          >
+            <div class="flex items-center">
+              <i class="fa-solid fa-truck text-primary mr-2 rtl:ml-2 rtl:mr-0"></i>
+              {{ 'login.freeDelivery' | translate }}
+            </div>
+            <div class="flex items-center">
+              <i class="fa-solid fa-shield-halved text-primary mr-2 rtl:ml-2 rtl:mr-0"></i>
+              {{ 'login.securePayment' | translate }}
+            </div>
+            <div class="flex items-center">
+              <i class="fa-solid fa-clock text-primary mr-2 rtl:ml-2 rtl:mr-0"></i>
+              {{ 'login.support' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full">
+      <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+        <div class="text-center mb-8">
+          <div class="flex items-center justify-center mb-4">
+            <span class="text-3xl font-bold text-primary">
+              Fresh<span class="text-gray-800">Cart</span>
+            </span>
+          </div>
+          <h1 class="text-2xl font-bold text-gray-800 mb-2">
+            {{ 'login.welcomeBack' | translate }}
+          </h1>
+          <p class="text-gray-600">{{ 'login.subtitle' | translate }}</p>
+        </div>
+
+        <div class="space-y-3 mb-6">
+          <button
+            type="button"
+            class="w-full flex items-center justify-center gap-3 py-3 px-4 border-2 border-gray-200 rounded-xl hover:border-primary-300 hover:bg-primary-50 transition-all duration-200"
+          >
+            <i class="fa-brands fa-google text-red-500 text-lg"></i>
+            <span class="font-medium text-gray-700">{{ 'login.googleLogin' | translate }}</span>
+          </button>
+          <button
+            type="button"
+            class="w-full flex items-center justify-center gap-3 py-3 px-4 border-2 border-gray-200 rounded-xl hover:border-primary-300 hover:bg-primary-50 transition-all duration-200"
+          >
+            <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+            <span class="font-medium text-gray-700">{{ 'login.facebookLogin' | translate }}</span>
+          </button>
+        </div>
+
+        <div class="relative my-6">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-200"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-4 bg-white text-gray-500 font-medium uppercase">{{
+              'login.orSeparator' | translate
+            }}</span>
+          </div>
+        </div>
+
+        <form (ngSubmit)="submitForm()" [formGroup]="loginForm" class="space-y-6">
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">{{
+              'login.emailLabel' | translate
+            }}</label>
+            <div class="relative">
+              <input
+                formControlName="email"
+                type="email"
+                class="w-full px-4 py-3 pl-12 rtl:pl-4 rtl:pr-12 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                [placeholder]="'login.emailPlaceholder' | translate"
+                id="email"
+              />
+              <i
+                class="fa-solid fa-envelope absolute left-4 rtl:left-auto rtl:right-4 top-1/2 -translate-y-1/2 text-gray-400"
+              ></i>
+            </div>
+
+            @let emailControl = loginForm.get('email');
+            @if (emailControl?.invalid && emailControl?.touched) {
+              <div class="mt-1">
+                @if (emailControl?.hasError('required')) {
+                  <p class="text-red-500 font-medium text-sm">
+                    {{ 'login.errors.emailRequired' | translate }}
+                  </p>
+                }
+                @if (emailControl?.hasError('email')) {
+                  <p class="text-red-500 font-medium text-sm">
+                    {{ 'login.errors.emailInvalid' | translate }}
+                  </p>
+                }
+              </div>
+            }
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label for="password" class="block text-sm font-semibold text-gray-700">{{
+                'login.passwordLabel' | translate
+              }}</label>
+              <a
+                class="text-sm text-primary hover:text-primary-hover font-medium"
+                routerLink="/forget-password"
+              >
+                {{ 'login.forgotPassword' | translate }}
+              </a>
+            </div>
+            <div class="relative">
+              <input
+                formControlName="password"
+                [type]="showPassword() ? 'text' : 'password'"
+                id="password"
+                class="w-full px-4 py-3 pl-12 pr-12 rtl:pr-12 rtl:pl-12 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                [placeholder]="'login.passwordPlaceholder' | translate"
+              />
+              <i
+                class="fa-solid fa-lock absolute left-4 rtl:left-auto rtl:right-4 top-1/2 -translate-y-1/2 text-gray-400"
+              ></i>
+              <button
+                (click)="togglePassword()"
+                type="button"
+                class="absolute right-4 rtl:right-auto rtl:left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <i class="fa-solid" [ngClass]="showPassword() ? 'fa-eye-slash' : 'fa-eye'"></i>
+              </button>
+            </div>
+
+            @let passwordControl = loginForm.get('password');
+            @if (passwordControl?.invalid && passwordControl?.touched) {
+              <div class="mt-1">
+                @if (passwordControl?.hasError('required')) {
+                  <p class="text-red-500 font-medium text-sm">
+                    {{ 'login.errors.passwordRequired' | translate }}
+                  </p>
+                }
+                @if (passwordControl?.hasError('pattern')) {
+                  <p class="text-red-500 font-medium text-sm">
+                    {{ 'login.errors.passwordPattern' | translate }}
+                  </p>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="flex items-center">
+            <label class="flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                class="h-4 w-4 text-primary accent-primary border-2 border-gray-300 rounded focus:ring-primary-500"
+              />
+              <span class="ml-3 rtl:ml-0 rtl:mr-3 text-sm text-gray-700">{{
+                'login.rememberMe' | translate
+              }}</span>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="isLoading()"
+            class="w-full bg-primary text-white py-3 px-4 rounded-xl hover:bg-primary-hover transition-all duration-200 font-semibold text-lg shadow-lg disabled:opacity-50"
+          >
+            @if (isLoading()) {
+              <i class="fa-solid fa-spinner fa-spin me-2"></i>
+              <span>{{ 'login.signingInBtn' | translate }}</span>
+            } @else {
+              <span>{{ 'login.signInBtn' | translate }}</span>
+            }
+          </button>
+        </form>
+
+        <div class="text-center mt-8 pt-6 border-t border-gray-100">
+          <p class="text-gray-600">
+            {{ 'login.newAccountPrompt' | translate }}
+            <a
+              class="text-primary hover:text-primary-hover ms-2 font-semibold"
+              routerLink="/register"
+            >
+              {{ 'login.createAccount' | translate }}
+            </a>
+          </p>
+        </div>
+
+        <div
+          class="flex items-center justify-center space-x-6 rtl:space-x-reverse mt-6 text-xs text-gray-500"
+        >
+          <div class="flex items-center">
+            <i class="fa-solid fa-lock mr-1 rtl:ml-1 rtl:mr-0"></i>
+            {{ 'login.sslSecured' | translate }}
+          </div>
+          <div class="flex items-center">
+            <i class="fa-solid fa-users mr-1 rtl:ml-1 rtl:mr-0"></i>
+            {{ 'login.usersCount' | translate }}
+          </div>
+          <div class="flex items-center">
+            <i class="fa-solid fa-star mr-1 rtl:ml-1 rtl:mr-0"></i> {{ 'login.rating' | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

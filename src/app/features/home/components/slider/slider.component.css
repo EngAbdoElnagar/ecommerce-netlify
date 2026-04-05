@@ -1,0 +1,66 @@
+.item {
+  background-image: linear-gradient(to right, #00c758e6, #05df7280), url(/images/home-slider.png);
+  background-size: cover;
+  background-position: center;
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #22c55e;
+  border-radius: 9999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+swiper-container::part(button-prev):hover,
+swiper-container::part(button-next):hover {
+  background-color: #ffffff;
+  color: #16a34a;
+}
+
+@media (max-width: 767px) {
+  swiper-container::part(button-prev),
+  swiper-container::part(button-next) {
+    display: none;
+  }
+}
+
+swiper-container::part(bullet) {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+swiper-container::part(bullet):hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.2);
+}
+
+swiper-container::part(bullet-active) {
+  background-color: #ffffff;
+  border-radius: 7px;
+  width: 25px;
+  height: 12px;
+}
+
+swiper-slide-active [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}

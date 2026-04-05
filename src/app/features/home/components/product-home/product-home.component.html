@@ -1,0 +1,10 @@
+<section id="product-home" class="">
+  <app-section-title title="home.products.title" highlight="home.products.highlight">
+  </app-section-title>
+
+  <div class="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    @for (product of productList(); track product._id) {
+      <app-shared-card [data]="product"></app-shared-card>
+    }
+  </div>
+</section>

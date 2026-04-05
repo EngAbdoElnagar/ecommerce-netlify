@@ -1,0 +1,41 @@
+<header id="main-header" [class]="'text-white ' + bgColorClass()" class="mb-6" dir="auto">
+  <div class="container min-h-60 flex flex-col justify-center py-10">
+    <nav class="flex items-center gap-2 text-sm text-white/70 mb-6">
+      <a routerLink="/" class="hover:text-white transition-colors">
+        {{ 'header.home' | translate }}
+      </a>
+
+      @for (link of breadcrumb(); track $index) {
+        <span class="text-white/40 rtl:rotate-180 inline-block">/</span>
+        @if (link.url) {
+          <a [routerLink]="link.url" class="hover:text-white transition-colors">
+            {{ link.label | translate }}
+          </a>
+        } @else {
+          <span class="text-white font-medium">{{ link.label | translate }}</span>
+        }
+      }
+    </nav>
+
+    <div class="flex items-center gap-5">
+      <div
+        class="icon flex items-center justify-center aspect-square h-16 rounded-2xl shadow-lg bg-white/20 backdrop-blur-sm overflow-hidden ring-1 ring-white/30 shrink-0"
+      >
+        @if (image()) {
+          <img [src]="image()" [alt]="title() | translate" class="w-12 h-12 object-contain" />
+        } @else {
+          <i [class]="'fa-solid ' + iconClass() + ' text-3xl'"></i>
+        }
+      </div>
+
+      <div class="title-heading text-start">
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+          {{ title() | translate }}
+        </h1>
+        <p class="text-white/80 mt-1">
+          {{ description() | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
