@@ -106,7 +106,7 @@ src/app/
 
 ```bash
 # Clone the repository
-git clone https://github.com/MeladEssam/E-commerce.git
+git clone 
 
 # Navigate into project
 cd E-commerce
@@ -131,7 +131,7 @@ ng build
 ## 🌍 Deployment
 
 The project is deployed using **Netlify**:
-👉 https://ecommeraceproject.netlify.app/
+👉 https://app-ecommerce.netlify.app/home
 
 ---
 
