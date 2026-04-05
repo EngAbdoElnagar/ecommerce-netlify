@@ -1,59 +1,191 @@
-# Ecommerce
+# 🛒 E-Commerce Web Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+## 🔗 Live Demo
 
-## Development server
+👉 [https://app-ecommerce.netlify.app/home]
 
-To start a local development server, run:
+## 📂 Repository
+
+👉 [https://github.com/EngAbdoElnagar/ecommerce-netlify]
+
+---
+
+## 📌 Overview
+
+A full-featured **E-Commerce web application** built using Angular with SSR and modern state management techniques.
+
+The app provides a complete shopping experience including authentication, product browsing, cart management, and order handling with a clean and responsive UI.
+
+---
+
+## 🚀 Features
+
+### 🔐 Authentication
+
+- Login
+- Register
+- Forgot Password
+
+### 🛍️ Shopping Experience
+
+- Browse products
+- Product details page
+- Shop page
+- Search functionality
+
+### 🧾 Categories & Brands
+
+- All categories page
+- Brands page
+- Sub-categories support
+
+### 🛒 Cart & Wishlist
+
+- Add to cart
+- Manage cart
+- Wishlist page
+
+💳 Checkout & Orders
+# Seamless checkout experience
+# Multiple payment options:
+💵 Cash on Delivery (COD)
+💳 Online Payment (Simulated)
+# Order placement and confirmation
+# Orders history & tracking
+
+### 👤 User Profile
+
+- Profile settings
+
+### 🏠 Other Pages
+
+- Home page
+- Not found page
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ Angular (SSR + Signals)
+- 🎨 Tailwind CSS
+- 🧩 Component-based architecture
+- 🔗 REST API integration
+- 🌐 Netlify deployment
+
+---
+
+## 📁 Project Structure
 
 ```bash
+src/app/
+ ├── core/
+ │   ├── auth/
+ │   ├── guards/
+ │   ├── interceptors/
+ │   ├── services/
+ │
+ ├── features/
+ │   ├── home/
+ │   ├── shop/
+ │   ├── product-details/
+ │   ├── cart/
+ │   ├── wishlist/
+ │   ├── checkout/
+ │   ├── orders/
+ │   ├── profile/
+ │   ├── categories/
+ │   ├── brands/
+ │   ├── search/
+ │
+ ├── shared/
+```
+
+---
+
+## ⚙️ Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/MeladEssam/E-commerce.git
+
+# Navigate into project
+cd E-commerce
+
+# Install dependencies
+npm install
+
+# Run project
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 📦 Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🌍 Deployment
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+The project is deployed using **Netlify**:
+👉 https://ecommeraceproject.netlify.app/
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 💡 Future Improvements
 
-For end-to-end (e2e) testing, run:
+- 🧑‍💼 Admin dashboard
+- 🔔 Notifications system
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 🙋‍♂️ Author
 
-## Additional Resources
+**AbduAlghany AbduAllah**
+Frontend Developer (Angular)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## ⭐ Support
+## 📸 Screenshots
+
+<p align="center">
+  <img src="Screenshots/homePage.png" width="91%" alt="home Screen" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/shopPage.png" width="45%" alt="shop Screen" />
+  <img src="Screenshots/searshPage.png" width="45%" alt="searchPage Screen" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/productDeatalisPage.png" width="91%" alt="product-details Screen" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/brandsPage.png" width="45%" alt="brands Screen" />
+  <img src="Screenshots/categoriesPage.png" width="45%" alt="categories Screen" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/cartPage.png" width="45%" alt="cart Screen" />
+  <img src="Screenshots/wishlistPage.png" width="45%" alt="wishlist Screen" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/checkoutPage.png" width="45%" alt="payment Screen" />
+  <img src="Screenshots/ordersPage.png" width="45%" alt="orders Screen" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/addrssesPage.png" width="91%" alt="addresses Screen" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/loginPage.png" width="91%" alt="login Screen" />
+</p>
+
+If you like this project, give it a ⭐ on GitHub!
